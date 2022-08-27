@@ -83,7 +83,7 @@ namespace GoodsStore.Controllers
                         DateTime fDate;
                         DateTime tDate;
                         records = csvReader.GetRecords<Goods>().ToList();
-                        if (fromDate != null && toDate != null)
+                        if (fromDate != "null" && toDate != "null")//as it came from frontend as "null" not null
                         {
                             
                             fDate = DateTime.ParseExact(fromDate, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
@@ -94,14 +94,14 @@ namespace GoodsStore.Controllers
                         }
                         else
                         {
-                            if (toDate == null)
+                            if (toDate == "null")
                             {
-                                fDate = DateTime.ParseExact(fromDate, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                                fDate = DateTime.ParseExact(fromDate, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
                                 records = records.Where(x => DateTime.ParseExact(x.TransactionDate, "dd/MM/yyyy", CultureInfo.InvariantCulture) >= fDate).ToList();
                             }
-                            else if (fromDate == null)
+                            else if (fromDate == "null")
                             {
-                                tDate = DateTime.ParseExact(toDate, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                                tDate = DateTime.ParseExact(toDate, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
                                 records = records.Where(x => DateTime.ParseExact(x.TransactionDate, "dd/MM/yyyy", CultureInfo.InvariantCulture) <= tDate).ToList();
                             }
                             
