@@ -4,3 +4,5 @@ obj/
 Debug/
 Release/
 bin/Debug
+input/
+output/
