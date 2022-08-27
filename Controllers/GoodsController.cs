@@ -26,8 +26,6 @@ namespace GoodsStore.Controllers
                 var outputFolder = Constants.Constants.outputFolder;
                 var inputFolder = Constants.Constants.inputFolder;
                 var generateFiles = new GenerateFiles();
-                string vv = Directory.GetCurrentDirectory();
-
                 var readFile = new ReadFile();
                 List<int> goodsIDs = new List<int>();
                 List<string>dateRange=new List<string>();
